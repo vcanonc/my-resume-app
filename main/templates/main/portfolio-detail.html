@@ -1,0 +1,73 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+<!-- ================================
+    Start SEO blocks
+    ================================= -->
+{% block title %}Resume - Portfolio{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+    END SEO blocks
+    ================================= -->
+
+
+<!-- ================================
+    Start CSS blocks
+    ================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+    END CSS blocks
+    ================================= -->
+
+
+<!-- ================================
+    Start script blocks
+    ================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+    END script blocks
+    ================================= -->
+
+
+{% block contents %}
+<!-- ================================
+    Start Content
+    ================================= -->
+<section>
+    <div class="innerPageBannerCol">
+        <div class="container">
+            <div class="row g-4 g-md-3  align-items-center">
+                <div class="col-md-6">
+                    <div class="bannerContent">
+                        <h1 class="xlTitle pb-md-3">{{ portfolio.name | title}}</h1>
+                    </div>
+                </div>
+
+                <div class="bannerBtnCol">
+                    <div class="row">
+                        <div class="col-auto">
+                            <a href="{{ portfolio.repository_url | default:'#' }}" target="_blank" class="btn btnPrimary">
+                                View in GitHub
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="sectionSpaceSm">
+        <div class="container">
+            <p>{{ portfolio.body | safe }}</p>
+        </div>
+    </div>
+</section>
+<!-- ================================
+    End Content
+    ================================= -->
+{% endblock %}

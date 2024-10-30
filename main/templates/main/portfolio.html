@@ -1,0 +1,88 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+<!-- ================================
+    Start SEO blocks
+    ================================= -->
+{% block title %}Resume - Portfolio{% endblock %}
+{% block description %}{% endblock %}
+{% block keywords %}{% endblock %}
+<!-- ================================
+    END SEO blocks
+    ================================= -->
+
+
+<!-- ================================
+    Start CSS blocks
+    ================================= -->
+{% block extend_header %}{% endblock %}
+<!-- ================================
+    END CSS blocks
+    ================================= -->
+
+
+<!-- ================================
+    Start script blocks
+    ================================= -->
+{% block extend_footer %}{% endblock %}
+<!-- ================================
+    END script blocks
+    ================================= -->
+
+
+{% block contents %}
+<!-- ================================
+    Start Content
+    ================================= -->
+<section>
+    <div class="innerPageBannerCol">
+        <div class="container">
+            <div class="row g-4 g-md-3  align-items-center">
+                <div class="col-md-6">
+                    <div class="bannerContent">
+                        <h1 class="xlTitle pb-md-3">See my recent projects below</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="lightBg">
+        <div class="container">
+            <div class="portfolioContentMain">
+                <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
+
+                    {% for project in projects %}
+                    {% if project.is_active %}
+                    <div class="col-md-6 pColMain">
+
+                        <div class="cardStyle1">
+
+                            <h4 class="mdTitle cs1Title">
+                                <a href="{% url 'main:portfolio' slug=project.slug %}">
+                                    {{ project.name }}
+                                </a>
+                            </h4>
+
+                            <a href="{% url 'main:portfolio' slug=project.slug %}">
+                                <img src="{{ project.image.url }}" alt="{{ project.name }}" class="pImg">
+                            </a>
+
+                        </div>
+
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ================================
+    End Content
+    ================================= -->
+{% endblock %}
