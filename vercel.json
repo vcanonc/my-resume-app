@@ -13,10 +13,18 @@
             "src": "build_files.sh",
             "use": "@vercel/static-build",
             "config": {
-                "distDir": "staticfiles_build"
+                "distDir": "staticfiles"
             }
         }
     ],
+    "build": {
+        "env": {
+            "DJANGO_COLLECTSTATIC": "1"
+        },
+        "commands": [
+            "python manage.py collectstatic --noinput"
+        ]
+    },
     "routes": [
         {
             "src": "/static/(.*)",
