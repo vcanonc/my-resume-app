@@ -89,11 +89,11 @@ WSGI_APPLICATION = 'resume.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'yQDXNmwVRcEiKEWJqZAwqWHWzQPwTNCd',
-        'HOST': 'autorack.proxy.rlwy.net',
-        'PORT': '11300'
+        'NAME': 'verceldb',
+        'USER': 'default',
+        'PASSWORD': '2lVIZfPk3ysA',
+        'HOST': 'ep-yellow-wind-a40s7hp6-pooler.us-east-1.aws.neon.tech',
+        'PORT': '5432'
     }
 }
 
