@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!fwx9$l+z@m3g*u4o4cuz0h)mlft1=pfi+(&zn@uqy9a5gde=m'
+SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -42,10 +42,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles',
-    'cloudinary_storage',
-    'cloudinary'
     'main.apps.MainConfig',
     'ckeditor',
+    'cloudinary_storage',
+    'cloudinary',
 ]
 
 CLOUDINARY_STORAGE = {
@@ -100,11 +100,11 @@ WSGI_APPLICATION = 'resume.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'verceldb',
-        'USER': 'default',
-        'PASSWORD': '2lVIZfPk3ysA',
-        'HOST': 'ep-yellow-wind-a40s7hp6-pooler.us-east-1.aws.neon.tech',
-        'PORT': '5432'
+        'NAME': os.getenv('POSTGRES_DATABASE'),
+        'USER': os.getenv('POSTGRES_USER'),
+        'PASSWORD': os.getenv('POSTGRES_PASSWORD'),
+        'HOST': os.getenv('POSTGRES_HOST'),
+        'PORT': os.getenv('POSTGRES_PORT'),
     }
 }
 

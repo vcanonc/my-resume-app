@@ -55,6 +55,7 @@
             <div class="portfolioContentMain">
                 <div class="row g-3 g-md-4 g-lg-5 portfolioRow">
 
+                    {% if blogs %}
                     {% for blog in blogs %}
                     {% if blog.is_active %}
                     <div class="col-md-6 pColMain">
@@ -89,6 +90,9 @@
                     </div>
                     {% endif %}
                     {% endfor %}
+                    {% else %}
+                    <p>There are no blogs entries.</p>
+                    {% endif %}
 
                 </div>
             </div>
